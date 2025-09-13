@@ -4,14 +4,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Damian96 Portfolio</title>
+  <title>Damianos Giankakis | Software Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+
+  <script type="text/javascript">
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    document.documentElement.classList.toggle(
+      "dark",
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+    );
+  </script>
+
 </head>
 
 <body>
-  <div id="app">
-    <h1 class="text-3xl font-bold underline text-red-500">
-      Hello world!
-    </h1>
+  <div id="app" class="">
+    <div class="wrapper w-full">
+      <header class="fixed z-50 xl:top-10 3xl:start-1/10 3xl:min-w-0 3xl:w-8/10 xl:start-1/12 xl:min-w-0 xl:w-10/12 xl:p-5 2xs:min-w-full 2xs:top-5 2xs:p-4 xl:border-1 xl:border-gray-400 xl:rounded-xl">
+        <nav class="flex items-center w-full">
+          <div class="text-3xl font-bold text-white">
+            <h1 class="font-yellowtail">
+              <a href="#" class="hidden md:block">Damianos Giankakis</a>
+              <a href="#" class="md:hidden">Damian96</a>
+            </h1>
+          </div>
+          <ul class="flex space-x-8 text-white ml-auto">
+            <li><a href="#about" class="hover:text-gray-300">About</a></li>
+            <li><a href="#projects" class="hover:text-gray-300">Projects</a></li>
+            <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+          </ul>
+          <theme-switch class="ml-8"></theme-switch>
+
+        </nav>
+
+      </header>
+    </div>
   </div>
   <script type="module" src="/src/main.ts"></script>
 </body>

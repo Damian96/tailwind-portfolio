@@ -1,1 +1,58 @@
-@import "tailwindcss";
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@theme {
+  /* New breakpoints for media query */
+  /* --breakpoint-3xs: 10rem; /* 160px */
+  --breakpoint-2xs: 20rem; /* 320px */
+  --breakpoint-xs: 30rem; /* 480px */
+  /* </> */
+  /* Tailwind's default breakpoints */
+  /* sm	| 40rem (640px) | @media (width >= 40rem) */
+  /* md	| 48rem (768px) | @media (width >= 48rem) */
+  /* lg	| 64rem (1024px) | @media (width >= 64rem) */
+  /* xl	| 80rem (1280px) | @media (width >= 80rem) */
+  /* 2xl | 96rem (1536px) | @media (width >= 96rem) */
+  /* </> */
+  /* New breakpoints for media query */
+  --breakpoint-3xl: 108rem; /* 1728px */
+  --breakpoint-4xl: 118rem; /* 1888px */
+  /* </> */
+
+  /* New breakpoints for @container */
+  /* --container-4xs: 8rem;
+  --container-4xl: 64rem;
+  --container-8xl: 96rem; */
+
+  /* Fonts */
+  --font-yellowtail: "Yellowtail", cursive;
+}
+
+html.dark {
+  background: #111723;
+  background: linear-gradient(
+      180deg,
+      rgba(17, 23, 35, 1) 0%,
+      rgba(25, 70, 130, 1) 50%,
+      rgba(19, 26, 55, 1) 100%
+    )
+    no-repeat;
+}
+
+body {
+  min-height: 300vh;
+}
+
+header {
+  theme-switch {
+    /* There is a special property called --theme-switch-icon-color
+   * which you can set, to change the color of the icon in the switch */
+    --theme-switch-icon-color: #ffffff;
+  }
+}
+
+/* #4E7CB7 */
+/* #111723 */
+/* #131A37 */
