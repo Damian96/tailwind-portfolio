@@ -3,6 +3,8 @@
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @theme {
   /* New breakpoints for media query */
   /* --breakpoint-3xs: 10rem; /* 160px */
@@ -39,13 +41,7 @@ html.dark {
       rgba(19, 26, 55, 1) 100%
     )
     no-repeat;
-}
 
-body {
-  min-height: 300vh;
-}
-
-header {
   theme-switch {
     /* There is a special property called --theme-switch-icon-color
    * which you can set, to change the color of the icon in the switch */
@@ -53,6 +49,26 @@ header {
   }
 }
 
-/* #4E7CB7 */
-/* #111723 */
-/* #131A37 */
+html.light {
+  background: #f0f4f8;
+  background: linear-gradient(
+      180deg,
+      rgb(175, 204, 233) 0%,
+      rgb(193, 212, 230) 50%,
+      rgb(207, 222, 236) 100%
+    )
+    no-repeat;
+
+  theme-switch {
+    /* There is a special property called --theme-switch-icon-color
+   * which you can set, to change the color of the icon in the switch */
+    --theme-switch-icon-color: #000000;
+  }
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+header {
+}

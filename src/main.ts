@@ -1,7 +1,7 @@
 import './style.css'
-import '@h0rn0chse/dark-mode-toggle/dist/bundle.min.css';
 import '@mahozad/theme-switch/dist/theme-switch.min.js';
 
+/* Theme-related */
 document.addEventListener('DOMContentLoaded', () => {
     // // Whenever the user explicitly chooses light mode
     // localStorage.theme = "light";
@@ -16,6 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // but tailwind was already setting it to dark because of system preference
     if (theme === 'light' && document.documentElement.classList.contains('dark')) {
         (document.querySelector('theme-switch') as any)?.click();
+    }
+
+    if (theme === 'light' && !document.documentElement.classList.contains('dark')
+        && !document.documentElement.classList.contains('light')) {
+        document.documentElement.classList.add('light');
     }
 });
 
@@ -33,5 +38,19 @@ document.addEventListener("themeToggle", (event: any) => {
         document.documentElement.classList.add("dark");
     } else {
         document.documentElement.classList.add(event.detail.newState);
+    }
+});
+// <./-- Theme-related
+
+var decryptEmail = (encoded: string) => {
+    const address = atob(encoded);
+    window.open("mailto:" + address);
+};
+
+document.getElementById('email-link')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const encoded = (e.target as HTMLAnchorElement).getAttribute('data-encoded-email');
+    if (encoded) {
+        decryptEmail(encoded);
     }
 });
